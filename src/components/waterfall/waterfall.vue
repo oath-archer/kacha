@@ -3,7 +3,7 @@
         <waterfall :col="col" :data="data" @loadmore="loadmore" @scroll="scroll">
             <template>
                 <div class="cell-item" v-for="(item, index) in data" :key="index">
-                    <img v-if="item.img" :lazy-src="item.img" alt="加载错误">
+                    <img v-if="item.img" :lazy-src="item.img" alt="加载错误" @click="handleImages(item.img)">
                     <div class="item-footer">
                         <div class="avatar" :style="{ backgroundImage : `url(${item.avatar})` }"></div>
                         <div class="name">{{ item.user }}</div>
@@ -14,17 +14,25 @@
         <div class="loading" v-if="loading">
             <img src="../../assets/images/loading.svg" alt="">
         </div>
+
+        <Imagesinfo ref="Imagesinfo"/>
     </div>
 </template>
 
 <script>
+import Imagesinfo from '@/components/imagesInfo/imagesInfo'
+
 export default {
     name: 'water',
+    components: {
+        Imagesinfo
+    },
     data(){
         return {
-            col: 4,
+            col: 5,
+            data: [],
             loading: false,
-            data: [{
+            originData: [{
                 img: "https://image.watsons.com.cn//upload/8a316140.png?w=377&h=451&x-oss-process=image/resize,w_1080",
                 avatar: "https://img.xiaohongshu.com/avatar/5b7d198a7e6e15000155f7c9.jpg@80w_80h_90q_1e_1c_1x.jpg",
                 title: "最近浴室新宠，日系神仙好物了解一下～",
@@ -325,11 +333,10 @@ export default {
     },
     methods: {
         scroll(scrollData){
-            // console.log(scrollData.scrollTop)
-            if (scrollData.scrollTop > 100){
+            if (scrollData.scrollTop > 200){
                 this.$parent.$parent.$refs.navbar.navClass = 'on';
             } else if (scrollData.scrollTop == 0){
-                this.$parent.$parent.$refs.navbar.navClass = '';
+                this.$parent.$parent.$refs.navbar.navClass = 'h';
             }
         },
         switchCol(col){
@@ -338,16 +345,22 @@ export default {
         loadmore(){
             this.loading = true;
             setTimeout( () => {
-                this.data = this.data.concat(this.data);
+                this.data = this.data.concat(this.originData, this.originData);
                 this.loading = false;
             }, 1500);
+        },
+        handleImages(img){
+            this.$refs.Imagesinfo.imagesDialog = true;
+            this.$refs.Imagesinfo.imgSrc = img;
         }
     },
     mounted() {
+        this.data = this.originData;
+
         var _this = this;
-        window.onresize = function (){
+        window.onresize = window.onload = function (){
             if (document.documentElement.clientWidth >= 1600){
-                _this.switchCol(4);
+                _this.switchCol(5);
             } else if (document.documentElement.clientWidth <= 1024){
                 _this.switchCol(2);
             } else {

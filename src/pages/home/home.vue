@@ -58,7 +58,8 @@ export default {
         
     },
     mounted() {
-        
+		this.$parent.$refs.navbar.navClass = 'h';
+		//this.navClass = 'h';
     },
     watch: {
         

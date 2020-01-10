@@ -1,18 +1,23 @@
 <template>
     <div class="navbar" :class="navClass">
 		<a href="/" class="logo"></a>
+		<el-input
+			placeholder="免费搜索照片和视频"
+			suffix-icon="el-icon-search"
+			v-model="keyword">
+		</el-input>
 		<ul class="menu clearfix">
 			<li class="menuitem">
 				<el-dropdown>
 					<span class="el-dropdown-link">
-						<router-link to="2">探索</router-link>
+						<router-link to="/discover">探索</router-link>
 					</span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item>
-							<router-link to="21">发现照片</router-link>
+							<router-link to="/discover/popular-photo">发现照片</router-link>
 						</el-dropdown-item>
 						<el-dropdown-item>
-							<router-link to="22">热门照片</router-link>
+							<router-link to="/discover/popular-photo">热门照片</router-link>
 						</el-dropdown-item>
 						<el-dropdown-item>
 							<router-link to="23">热门搜索</router-link>
@@ -32,8 +37,12 @@
 					</el-dropdown-menu>
 				</el-dropdown>
 			</li>
-			<li class="menuitem">许可证</li>
-			<li class="menuitem">加入</li>
+			<li class="menuitem">
+				<router-link to="collection">许可证</router-link>
+			</li>
+			<li class="menuitem">
+				<router-link to="42">加入</router-link>
+			</li>
 			<li class="menuitem">
 				<el-dropdown>
 					<span class="el-dropdown-link">
@@ -73,12 +82,21 @@ export default {
     name: 'navbar',
     data (){
         return {
-			navClass: ''
+			keyword: '',
+			navClass: '',
         }
 	},
 	methods: {
 		handleSelect(key, keyPath){
 			console.log(key, keyPath)
+		}
+	},
+	watch: {
+		'$route.path'(val){
+			console.log(val)
+			if (val != '/'){
+				this.navClass = 'on';
+			}
 		}
 	},
 }
@@ -94,17 +112,48 @@ export default {
 	width: 100%;
 	height: 60px;
 	z-index: 6;
-	background: transparent;
+	background: #f5f5f5;
 	transition: all 0.3s ease;
 }
+.navbar .menuitem a,
+.navbar .menuitem i {
+	color: #333;
+}
+.navbar .el-input  {
+	opacity: 1;
+	width: 550px;
+	margin-top: 10px;
+}
+.navbar.h {
+	color: #fff;
+	/* background: #f5f5f5; */
+	background: transparent;
+}
+.navbar.h {
+	opacity: 1;
+}
+.navbar.h .menuitem a,
+.navbar.h .menuitem i {
+	color: #fff;
+}
 .navbar.on {
-	background: #545c64;
+	/* background: #545c64; */
+	color: #333;
+	background: #f5f5f5;
+}
+.navbar.on .el-input {
+	opacity: 1;
+}
+.navbar.on .menuitem a,
+.navbar.on .menuitem i {
+	color: #333;
 }
 .logo {
 	float: left;
 	width: 170px;
 	height: 60px;
 	background: url(../../assets/images/kacha_logo.png) center center no-repeat;
+	background-size: 60%;
 }
 .menu {
 	float: right;
@@ -113,20 +162,18 @@ export default {
 	/* background: #545c64; */
 }
 .menuitem {
-	color: #fff;
+	color: #333;
 	float: left;
 	font-size: 14px;
 	padding: 0 20px;
-}
-.menuitem a,
-.menuitem i {
-	color: #fff;
+	font-weight: 600;
 }
 .menuitem .el-dropdown-link {
 	padding: 20px 0;
 }
 .el-dropdown-menu__item a {
 	color: #333;
+	display: block;
 }
 .el-dropdown-menu__item:focus, 
 .el-dropdown-menu__item:not(.is-disabled):hover {
