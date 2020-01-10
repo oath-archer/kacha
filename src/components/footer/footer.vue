@@ -113,7 +113,7 @@ export default {
 }
 .btm {
     background: #b8c2c8;
-    padding: 40px calc(100% - 1280px);
+    padding: 40px calc((100% - 1280px) / 2)
 }
 .btm p {
     float: left;
