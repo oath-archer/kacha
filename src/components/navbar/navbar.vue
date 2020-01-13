@@ -71,7 +71,7 @@
 				</el-dropdown>
 			</li>
 			<li class="menuitem">
-				<el-button type="danger">上传内容</el-button>
+				<el-button type="danger" class="upload">上传内容</el-button>
 			</li>
 		</ul>
     </div>
@@ -93,7 +93,6 @@ export default {
 	},
 	watch: {
 		'$route.path'(val){
-			console.log(val)
 			if (val != '/'){
 				this.navClass = 'on';
 			}
@@ -103,6 +102,10 @@ export default {
 </script>
 
 <style scoped>
+.upload {
+	background: #5093a6;
+	border-color: #5093a6;
+}
 .navbar {
 	position: fixed;
 	top: 0;
@@ -121,8 +124,10 @@ export default {
 }
 .navbar .el-input  {
 	opacity: 1;
-	width: 550px;
+	width: 330px;
 	margin-top: 10px;
+	position: absolute;
+    right: 430px;
 }
 .navbar.h {
 	color: #fff;
@@ -131,6 +136,9 @@ export default {
 }
 .navbar.h {
 	opacity: 1;
+}
+.navbar.h .el-input {
+	opacity: 0;
 }
 .navbar.h .menuitem a,
 .navbar.h .menuitem i {
@@ -152,7 +160,7 @@ export default {
 	float: left;
 	width: 170px;
 	height: 60px;
-	background: url(../../assets/images/kacha_logo.png) center center no-repeat;
+	background: url(../../assets/images/kacha_logo_1.png) center center no-repeat;
 	background-size: 60%;
 }
 .menu {

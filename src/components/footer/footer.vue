@@ -38,7 +38,7 @@
                     v-model="userEmail"
                     clearable>
                 </el-input>
-                <el-button type="danger">注册</el-button>
+                <el-button type="danger" class="register-btn">注册</el-button>
             </div>
         </div>
         <div class="btm clearfix">
@@ -110,6 +110,10 @@ export default {
 }
 .register .el-button {
     width: 100%;
+}
+.register-btn {
+    background: #5093a6;
+    border-color: #5093a6;
 }
 .btm {
     background: #b8c2c8;

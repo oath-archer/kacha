@@ -5,15 +5,15 @@
 				<!-- <img src="../../assets/images/banner.jpeg" alt=""> -->
 			</div>
 			<section class="banner_content">
-				<h1 class="banner_title">感谢摄影朋友</h1>
-				<h1 class="banner_title">免费分享最精彩的照片</h1>
-				<div class="banner_search">
+				<h1 class="banner_title">免费下载可商用</h1>
+				<h1 class="banner_title">感谢摄影作者免费分享最精彩的照片</h1>
+				<!-- <div class="banner_search">
 					<el-input
 						placeholder="免费搜索照片和视频"
 						suffix-icon="el-icon-search"
 						v-model="keyword">
 					</el-input>
-				</div>
+				</div> -->
 			</section>
         </header>
 		<!-- 筛选 -->
@@ -58,7 +58,7 @@ export default {
         
     },
     mounted() {
-		this.$parent.$refs.navbar.navClass = 'h';
+		this.$parent.$refs.navbar.navClass = 'on';
 		//this.navClass = 'h';
     },
     watch: {
@@ -78,6 +78,7 @@ export default {
 	display: flex;
     align-items: center;
     justify-content: center;
+	margin-top: 60px;
 }
 .banner_bg {
 	position: absolute;
@@ -98,12 +99,16 @@ export default {
 	height: 100%;
 }
 .banner_title {
+    margin-top: 0;
 	display: block;
     font-size: 36px;
-    line-height: 48px;
     font-weight: 700;
-    margin-top: 0;
+    line-height: 48px;
+	text-align: center;
     margin-bottom: 15px;
+}
+.banner_title:nth-child(2){
+	font-weight: 400;
 }
 .banner_content {
 	max-width: 650px;
