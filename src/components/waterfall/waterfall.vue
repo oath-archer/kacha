@@ -156,7 +156,8 @@ export default {
 
 <style>
 #waterfall {
-	padding: 0 10%;
+	width: 1280px;
+	margin: 0 auto;
 }
 .cell-item {
     position: relative;

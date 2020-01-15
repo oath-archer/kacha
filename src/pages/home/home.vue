@@ -5,8 +5,8 @@
 				<!-- <img src="../../assets/images/banner.jpeg" alt=""> -->
 			</div>
 			<section class="banner_content">
-				<h1 class="banner_title">免费下载可商用</h1>
-				<h1 class="banner_title">感谢摄影作者免费分享最精彩的照片</h1>
+				<!-- <h1 class="banner_title">免费下载可商用</h1>
+				<h1 class="banner_title">感谢摄影作者免费分享最精彩的照片</h1> -->
 				<!-- <div class="banner_search">
 					<el-input
 						placeholder="免费搜索照片和视频"
@@ -73,8 +73,8 @@ export default {
 	position: relative;
     height: 100%;
     overflow: hidden;
-    max-height: 500px;
-    min-height: 380px;
+    max-height: 580px;
+    min-height: 580px;
 	display: flex;
     align-items: center;
     justify-content: center;
@@ -89,9 +89,9 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    max-height: 500px;
-	min-height: 380px;
-	background: url(../../assets/images/banner.jpeg) no-repeat;
+    max-height: 580px;
+	min-height: 580px;
+	background: url(../../assets/images/banner.jpg) no-repeat;
 	background-size: 100% 100%;
 }
 .banner_bg img {
