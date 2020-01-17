@@ -45,19 +45,19 @@
 						</span>
 						<el-dropdown-menu slot="dropdown">
 							<el-dropdown-item>
-								<router-link to="41">登录</router-link>
+								<router-link to="/login">登录</router-link>
 							</el-dropdown-item>
 							<el-dropdown-item>
-								<router-link to="42">加入</router-link>
+								<router-link to="/join">加入</router-link>
 							</el-dropdown-item>
 							<!-- <el-dropdown-item>
 								<router-link to="43">更多语言</router-link>
 							</el-dropdown-item> -->
 							<el-dropdown-item>
-								<router-link to="46">用户协议</router-link>
+								<router-link to="/agreement">用户协议</router-link>
 							</el-dropdown-item>
 							<el-dropdown-item>
-								<router-link to="47">隐私政策</router-link>
+								<router-link to="/privacy">隐私政策</router-link>
 							</el-dropdown-item>
 						</el-dropdown-menu>
 					</el-dropdown>
