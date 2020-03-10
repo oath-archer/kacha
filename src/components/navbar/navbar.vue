@@ -48,6 +48,9 @@
 								<router-link to="/login">登录</router-link>
 							</el-dropdown-item>
 							<el-dropdown-item>
+								<router-link to="/register">注册</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
 								<router-link to="/join">加入</router-link>
 							</el-dropdown-item>
 							<!-- <el-dropdown-item>

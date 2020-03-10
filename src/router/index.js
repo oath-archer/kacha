@@ -11,7 +11,12 @@ import Licence from '@/pages/about/licence'
 import QandA from '@/pages/about/q&a'
 import Leaderboard from '@/pages/about/leaderboard'
 import Challenge from '@/pages/about/challenge'
+// 登录
 
+// 加入
+import Join from '@/pages/join/join'
+// 注册
+import Register from '@/pages/register/register'
 // 探索
 import Discover from '@/pages/discover/discover'
 import Collect from '@/pages/collection/collection'
@@ -43,6 +48,14 @@ var router = new Router({
 			path: '/about/challenge',
 			component: Challenge
 		}]
+	}, {
+		path: '/join',
+		name: 'join',
+		component: Join
+	}, {
+		path: '/register',
+		name: 'register',
+		component: Register
 	}, {
 		path: '/discover',
 		name: 'discover',

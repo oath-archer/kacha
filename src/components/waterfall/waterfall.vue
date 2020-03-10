@@ -134,16 +134,6 @@ export default {
 
         var _this = this;
         window.onresize = window.onload = function (){
-            /*
-            if (document.documentElement.clientWidth >= 1600){
-                _this.switchCol(5);
-            } else if (document.documentElement.clientWidth <= 1024){
-                _this.switchCol(2);
-            } else {
-                _this.switchCol(3);
-            }
-            */
-
             if (document.documentElement.clientWidth <= 1024){
                 _this.switchCol(2);
             } else {
