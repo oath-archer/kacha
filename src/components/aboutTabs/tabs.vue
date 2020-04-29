@@ -2,7 +2,7 @@
     <div id="about_tabs">
         <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="关于我们" name="/about/us"></el-tab-pane>
-            <el-tab-pane label="许可证" name="/about/licence"></el-tab-pane>
+            <el-tab-pane label="简明规则" name="/about/licence"></el-tab-pane>
             <el-tab-pane label="常见问题解答" name="/about/q&a"></el-tab-pane>
             <el-tab-pane label="热门作者排行榜" name="/about/leaderboard"></el-tab-pane>
             <el-tab-pane label="挑战赛" name="/about/challenge"></el-tab-pane>

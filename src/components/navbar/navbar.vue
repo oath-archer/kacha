@@ -8,6 +8,7 @@
 				v-model="keyword">
 			</el-input>
 			<ul class="menu clearfix">
+				<!--
 				<li class="menuitem">
 					<el-dropdown>
 						<span class="el-dropdown-link">
@@ -38,6 +39,7 @@
 				<li class="menuitem">
 					<router-link to="42">挑战赛</router-link>
 				</li>
+				-->
 				<li class="menuitem">
 					<el-dropdown>
 						<span class="el-dropdown-link">
@@ -48,14 +50,25 @@
 								<router-link to="/login">登录</router-link>
 							</el-dropdown-item>
 							<el-dropdown-item>
-								<router-link to="/register">注册</router-link>
+								<router-link to="/about/us">关于我们</router-link>
 							</el-dropdown-item>
+							<el-dropdown-item>
+								<router-link to="/about/licence">简明规则</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
+								<router-link to="/about/leaderboard">热门作者排行</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
+								<router-link to="">活动大赛</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
+								<router-link to="/about/q&a">常见问题解答</router-link>
+							</el-dropdown-item>
+							<!--
 							<el-dropdown-item>
 								<router-link to="/join">加入</router-link>
 							</el-dropdown-item>
-							<!-- <el-dropdown-item>
-								<router-link to="43">更多语言</router-link>
-							</el-dropdown-item> -->
+							-->
 							<el-dropdown-item>
 								<router-link to="/agreement">用户协议</router-link>
 							</el-dropdown-item>
@@ -68,6 +81,28 @@
 				<li class="menuitem">
 					<el-button type="danger" class="upload">上传内容</el-button>
 				</li>
+				<li class="menuitem avatar">
+					<el-dropdown>
+						<el-avatar size="large" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
+						<el-dropdown-menu slot="dropdown">
+							<el-dropdown-item>
+								<router-link to="/info">个人资料</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
+								<router-link to="/follows">我的关注</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
+								<router-link to="/collection">我的收藏</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
+								<router-link to="/settings">账号设置</router-link>
+							</el-dropdown-item>
+							<el-dropdown-item>
+								<a @click="logout">退出</a>
+							</el-dropdown-item>
+						</el-dropdown-menu>
+					</el-dropdown>
+				</li>
 			</ul>
 		</div>
     </div>
@@ -79,17 +114,22 @@ export default {
     data (){
         return {
 			keyword: '',
-			navClass: '',
+			navClass: ''
         }
 	},
 	methods: {
 		handleSelect(key, keyPath){
 			console.log(key, keyPath)
+		},
+		logout(){
+			console.log('退出');
 		}
 	},
 	watch: {
 		'$route.path'(val){
-			this.$parent.$refs.view.$refs.about.activeName = val;
+			if (val.indexOf('about') >= 0){
+				this.$parent.$refs.view.$refs.about.activeName = val;
+			}
 			if (val != '/'){
 				this.navClass = 'on';
 			}
@@ -166,7 +206,7 @@ export default {
 	float: left;
 	width: 170px;
 	height: 60px;
-	background: url(../../assets/images/kacha_logo_1.png) left center no-repeat;
+	background: url(../../assets/images/logo.png) left center no-repeat;
 	background-size: 60%;
 }
 .menu {
@@ -179,7 +219,7 @@ export default {
 	color: #333;
 	float: left;
 	font-size: 14px;
-	padding-left: 35px;
+	padding:0 16px;
 	font-weight: 600;
 }
 .menuitem .el-dropdown-link {
@@ -201,5 +241,11 @@ export default {
 .menuitem:last-child:hover {
 	background: none;
 }
-
+.avatar {
+	padding: 0px;
+}
+.avatar .el-dropdown {
+	height: 40px;
+    margin-top: 10px;
+}
 </style>

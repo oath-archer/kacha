@@ -1,7 +1,7 @@
 <template>
-    <div id="register">
-        <div class="reg-bg">
-            <div class="reg-box clearfix">
+    <div id="login">
+        <div class="login-bg">
+            <div class="login-box clearfix">
                 <div class="left">
                     <h2>联系我们</h2>
                     <p>
@@ -10,34 +10,33 @@
                     </p>
                 </div>
                 <div class="right">
-                    <h2>将你的照片展现给更多的人帮助别人激发灵感，给自己带来客户</h2>
-                    <el-form :model="regForm" ref="regForm" class="regForm">
+                    <h2>会员登录</h2>
+                    <el-form :model="loginForm" ref="loginForm" class="loginForm">
                         <el-form-item>
-                            <el-input v-model="regForm.username" placeholder="请输入用户名"></el-input>
+                            <el-input v-model="loginForm.phone" placeholder="请输入手机号"></el-input>
                         </el-form-item>
                         <el-form-item>
-                            <el-input v-model="regForm.phone" placeholder="请输入手机号"></el-input>
+                            <el-input v-model="loginForm.password" placeholder="请输入密码" show-password></el-input>
+                        </el-form-item>
+                        <el-form-item style="margin-bottom: 0">
+                            <el-input v-model="loginForm.verification" placeholder="请输入验证码"></el-input>
+                        </el-form-item>
+                        <el-form-item class="clearfix">
+                            <div class="autologin">
+                                <el-checkbox v-model="loginForm.autoLogin">下次自动登录</el-checkbox>
+                            </div>
+                            <div class="fogot" @click="forgetPw">
+                                <span>忘记密码？</span>
+                            </div>
                         </el-form-item>
                         <el-form-item>
-                            <el-input v-model="regForm.verification" placeholder="请输入验证码"></el-input>
-                        </el-form-item>
-                        <el-form-item>
-                            <el-input v-model="regForm.password" placeholder="请输入密码" show-password></el-input>
-                        </el-form-item>
-                        <el-form-item>
-                            <el-input v-model="regForm.password2" placeholder="请再次输入密码" show-password></el-input>
-                        </el-form-item>
-                        <el-form-item>
-                            <el-button size="large" class="btn btn-yuying">注册</el-button>
+                            <el-button size="large" class="btn btn-yuying">登录</el-button>
+                            <p class="login-text">
+                                <span>没有帐号？</span>
+                                <span class="reg" @click="toReg">立即注册</span>
+                            </p>
                         </el-form-item>
                     </el-form>
-                    <!-- <div class="reg-form">
-                        <input type="text" placeholder="请输入用户名">
-                        <input type="text" placeholder="请输入手机号">
-                        <input type="text" placeholder="请输入验证码">
-                        <input type="passowrd" placeholder="请输入密码">
-                        <input type="passowrd" placeholder="请再次输入密码">
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -48,26 +47,55 @@
 export default {
     data(){
         return {
-            regForm: {
-                username: '',
+            loginForm: {
                 phone: '',
-                verification: '',
                 password: '',
-                password2: ''
+                verification: '',
+                autoLogin: false
             }
         }
-    }
+    },
+    methods: {
+        toReg(){
+            this.$router.push({ path: '/register' });
+        },
+        forgetPw(){
+            this.$router.push({ path: '/retrieve' });
+        }
+    },
+    mounted() {
+        
+    },
 }
 </script>
 
 <style scoped>
-#register {
-    padding-top: 60px
+#login {
+    padding-top: 60px;
 }
-.reg-box {
+.autologin {
+    float: left;
+}
+.autologin .el-checkbox {
+    color: #FFF;
+}
+.fogot {
+    float: right;
+    color: #FFF;
+    cursor: pointer;
+}
+.login-box {
     width: 80%;
     margin: 0 auto;
     padding-top: 100px;
+}
+.login-text {
+    color: #FFF;
+    text-align: center;
+}
+.login-text .reg {
+    font-weight: 600;
+    cursor: pointer;
 }
 .left {
     float: left;
@@ -136,7 +164,7 @@ export default {
     color: #eee;
     font-size: 20px;
 }
-.reg-bg {
+.login-bg {
     height: 1096px;
     background: url(../../assets/images/banner_bg.jpg) left center no-repeat;
     background-size: 100% 100%;

@@ -134,3 +134,6 @@ a:focus,*:focus {
 .fr {
     float:right;
 }
+.pt-60 {
+    padding-top: 60px;
+}

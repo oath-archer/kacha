@@ -8,27 +8,21 @@
             <div class="router">
                 <ul>
                     <li>
-                        <router-link to="">关于我们</router-link>
+                        <router-link to="/about/us">关于我们</router-link>
                     </li>
                     <li>
-                        <router-link to="">加入我们</router-link>
+                        <router-link to="/about/licence">简明规则</router-link>
                     </li>
-                    <li>
-                        <router-link to="">挑战赛</router-link>
-                    </li>
-                    <li>
-                        <router-link to="">探索</router-link>
+					<li>
+                        <router-link to="/about/q&a">常见问题</router-link>
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <router-link to="">热门作者排行榜</router-link>
+                        <router-link to="/about/leaderboard">热门作者排行榜</router-link>
                     </li>
                     <li>
-                        <router-link to="">常见问题</router-link>
-                    </li>
-                    <li>
-                        <router-link to="">图片授权</router-link>
+                        <router-link to="">活动大赛</router-link>
                     </li>
                 </ul>
             </div>
